@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from account.serializers import UserResgistrationSerializer, UserModel
+from account.serializers import UserResgistrationSerializer, UserProfile
 from rest_framework import status
 from rest_framework import generics, permissions
 from rest_framework.authtoken.models import Token
@@ -12,7 +12,7 @@ from django.contrib.auth import authenticate
 # Create your views here.
 
 class UserRegisterView(generics.ListCreateAPIView):
-    queryset = UserModel.objects.all()
+    queryset = UserProfile.objects.all()
     serializer_class = UserResgistrationSerializer
     
 

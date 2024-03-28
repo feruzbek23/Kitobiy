@@ -20,7 +20,7 @@ class BookModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=15, choices=STATUS)
     book_file = models.FileField(upload_to='media/') 
-    owner = models.ForeignKey("account.UserModel", on_delete=models.CASCADE, related_name='owner')
+    owner = models.ForeignKey("account.UserProfile", on_delete=models.CASCADE, related_name='owner')
 
     
     def __str__(self):
