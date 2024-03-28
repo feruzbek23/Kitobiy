@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     # 'rest_framework.authtoken',
-    # 'djoser',
     'bookapi',
     'account',
+    'djoser',
 
      
 ]
@@ -130,7 +130,7 @@ STATIC_URL = 'static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-AUTH_USER_MODEL = 'account.UserModel'
+AUTH_USER_MODEL = 'account.UserProfile'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
