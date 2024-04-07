@@ -7,7 +7,7 @@ class UserResgistrationSerializer(serializers.ModelSerializer):
         model = models.UserProfile
         fields = (
             "id",
-            "username",
+            "name",
             "email",  
             "password",
         )
