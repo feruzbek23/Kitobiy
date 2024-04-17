@@ -1,28 +1,17 @@
-from django.shortcuts import render
 from rest_framework.views import APIView
+from rest_framework.authentication import BasicAuthentication
 from rest_framework import status
 from .serializers import BookSerializer, BookModel, FileUploadSerializer, AuthorModel, AuthorSerializer
 from rest_framework.response import Response
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 # Create your views here.
 
 # User authentification
-class UserAuthentification(APIView):
-
-    permission_classes = [IsAuthenticated]
-
-
-    def get(self, request):
-        return Response({"message": "This is secret, it is only for auhtenticated users"})
-
-
 
 class BookApiView(APIView):
-    # permission_classes = [
-    #     IsAuthenticatedOrReadOnly
-    # ]
+
+    authentication_classes = [BasicAuthentication]
     def get(self, request, pk=None):
         if pk is not None:
             try: 
@@ -62,7 +51,7 @@ class BookApiView(APIView):
         
 
 class FileUploadView(APIView):
-    
+
     def post(self, request, pk, format=None):
         book = BookModel.objects.get(pk=pk)
         serializer = FileUploadSerializer(data=request.data)
@@ -76,12 +65,11 @@ class FileUploadView(APIView):
 
 class AuthorDetailView(generics.RetrieveUpdateDestroyAPIView):
 
-    # permission_classes = [IsAuthenticated]
-
     queryset = AuthorModel.objects.all()
     serializer_class = AuthorSerializer
 
 
 class AuthorView(generics.ListCreateAPIView):
+    
     queryset = AuthorModel.objects.all()
     serializer_class = AuthorSerializer

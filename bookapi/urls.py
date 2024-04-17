@@ -1,12 +1,9 @@
 from django.urls import path
 from . import views
 
-
-
 urlpatterns = [
 
     # author's url
-    path("secret/", views.UserAuthentification.as_view(), name='user'),    
 
     path('book/', views.BookApiView.as_view(), name='book'),
     path('book/<int:pk>/', views.BookApiView.as_view(), name='book_pk'),

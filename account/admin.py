@@ -3,5 +3,4 @@ from .models import UserProfile
 
 # Register your models here.
 
-
-admin.site.register(UserProfile)  
+admin.site.register(UserProfile, search_fields = ('email',))  

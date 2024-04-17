@@ -19,12 +19,12 @@ class BookModel(models.Model):
     author = models.ForeignKey(AuthorModel, on_delete=models.CASCADE, related_name='author')
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=15, choices=STATUS)
-    book_file = models.FileField(upload_to='media/') 
-    owner = models.ForeignKey("account.UserProfile", on_delete=models.CASCADE, related_name='owner')
-
+    book_file = models.FileField(upload_to='media/')
+    user = models.ForeignKey("account.UserProfile", on_delete=models.CASCADE, related_name='owner')
     
     def __str__(self):
         return self.title
+    
 
 # User Model
 

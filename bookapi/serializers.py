@@ -22,9 +22,10 @@ class BookSerializer(serializers.ModelSerializer):
             "created_at",
             "status",
             "book_file",
-            "owner",
         )
-    
+        
+
+
     
 # Serializer for book file
 class FileUploadSerializer(serializers.Serializer):
