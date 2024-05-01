@@ -1,5 +1,4 @@
 *.pyc
-book-env/
 *.db.sqlite3
 Dockerfile
 .dockerignore
