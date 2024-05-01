@@ -41,11 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken',
     'bookapi',
     'account',
-
-     
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -147,6 +145,6 @@ REST_FRAMEWORK = {
 
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    )
-}   
+    ),
+}
 
