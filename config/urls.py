@@ -37,6 +37,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('bookapi.urls')),
     path('api/v1/', include('account.urls')),
+    # Documentation 
     path('api/v1/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger')
     
    
