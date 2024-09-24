@@ -31,7 +31,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     
     objects = UserProfileManager()
-
+    # Ensures authentication with email
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']  
     
