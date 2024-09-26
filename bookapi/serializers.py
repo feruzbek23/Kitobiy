@@ -9,11 +9,11 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 # Serializer for Book model
 class BookSerializer(serializers.ModelSerializer):
-    book_file = serializers.FileField()
+    
     class Meta:
         model = BookModel
         author = AuthorSerializer(serializers.IntegerField)
-
+        rate_stars = serializers.ChoiceField(choices=BookModel.STARS)
         status = serializers.ChoiceField(choices=BookModel.STATUS)
         fields = (
             "id",
@@ -21,12 +21,12 @@ class BookSerializer(serializers.ModelSerializer):
             "author",
             "created_at",
             "status",
-            "book_file",
+            "rate_stars",
+            "user",
+            
+            
         )
         
 
 
     
-# Serializer for book file
-class FileUploadSerializer(serializers.Serializer):
-    book_file = serializers.FileField()

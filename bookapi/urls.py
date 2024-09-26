@@ -13,5 +13,5 @@ urlpatterns = [
     path('author/', views.AuthorView.as_view(), name="author"),
 
     # file url
-    path('book/<int:pk>/upload_files', views.FileUploadView.as_view(), name='book_file')
+    
 ]

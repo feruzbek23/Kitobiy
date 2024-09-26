@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
-from rest_framework.authentication import BasicAuthentication
+
 from rest_framework import status
-from .serializers import BookSerializer, BookModel, FileUploadSerializer, AuthorModel, AuthorSerializer
+from .serializers import BookSerializer, BookModel, AuthorModel, AuthorSerializer
 from rest_framework.response import Response
 from rest_framework import generics
 
@@ -11,7 +11,7 @@ from rest_framework import generics
 
 class BookApiView(APIView):
 
-    authentication_classes = [BasicAuthentication]
+    
     def get(self, request, pk=None):
         if pk is not None:
             try: 
@@ -50,17 +50,7 @@ class BookApiView(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         
 
-class FileUploadView(APIView):
 
-    def post(self, request, pk, format=None):
-        book = BookModel.objects.get(pk=pk)
-        serializer = FileUploadSerializer(data=request.data)
-        if serializer.is_valid():
-            uploaded_file = serializer.validated_data['book_file']
-            book.book_file = uploaded_file
-            book.save()
-            return Response({'message':"File uploaded successfully"})
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class AuthorDetailView(generics.RetrieveUpdateDestroyAPIView):
