@@ -13,7 +13,7 @@
 
 ### First get the repo on your machine:
 ```bash
-$ git clone https://github.com/feruzbek23/librarium.git
+$ git clone https://github.com/feruzbek23/kitobiy.git
 ```
 
 
