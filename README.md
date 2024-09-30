@@ -1,4 +1,4 @@
-# 📚 Librarium
+# 📚 Kitobiy
 ## Book API to join **book lovers**.
 
 ## 🔑 Key Features:
