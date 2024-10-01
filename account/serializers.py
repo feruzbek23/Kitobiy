@@ -9,6 +9,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "email",  
+            "books_count",
             "password",
         )
         extra_kwargs = {
